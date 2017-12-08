@@ -87,10 +87,10 @@
                 $filNavn     = trim($filNavn);
                 $beskrivelse = trim($beskrivelse);
                 
-                $bildeNr     = strtoupper($bildeNr);
-                $opDato      = strtoupper($opDato);
-                $filNavn     = strtoupper($filNavn);
-                $beskrivelse = strtoupper($beskrivelse);
+                $bildeNr     = mb_strtoupper($bildeNr, 'UTF-8');
+                $opDato      = mb_strtoupper($opDato, 'UTF-8');
+                $filNavn     = mb_strtoupper($filNavn, 'UTF-8');
+                $beskrivelse = mb_strtoupper($beskrivelse, 'UTF-8');
 
                 if(!$bildeNr){
                     print("Bildenummer mangeler <br>");
