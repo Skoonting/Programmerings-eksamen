@@ -25,7 +25,7 @@
     
             <script>
                 function validateForm(){
-                    var oppDato = document.getElementById("bildeNr").value;
+                    var oppDato = document.getElementById("opDato").value;
                     var oppDatoArray = oppDato.split("-");
                     
                     var oppAr = parseInt(oppDatoArray[0]);
