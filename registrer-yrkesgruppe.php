@@ -26,7 +26,7 @@ if (isset($_POST["fortsett"]))
 	/* Skriver til fil. */
 	
 	
-	$filyrkesgruppe="../filer/yrkesgruppe.txt"; /* Kontroller mappestruktur. */
+	$filyrkesgruppe="../../filer/yrkesgruppe.txt"; /* Kontroller mappestruktur. */
 	
 	include("yrkesgruppe-validering.php");
 	
