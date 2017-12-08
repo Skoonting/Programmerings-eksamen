@@ -61,9 +61,9 @@
                     $dokpasientID=trim($del[1]);
 
 
-                    if ($dokpasientID!=$pasientID) 
+                    if ($dokpasientID != $pasientID) 
                         {
-                            $unikpasientID=true;
+                            return $unikpasientID;
                         }
 		            
                     else
