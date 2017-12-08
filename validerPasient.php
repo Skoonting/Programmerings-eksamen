@@ -42,6 +42,8 @@
     function validerRegpasient($pasientID)
         {
 
+        
+        
         $filpasient="../../filer/pasient.txt";
 
         $unikpasientID=true; 
@@ -59,14 +61,14 @@
                     $dokpasientID=trim($del[1]);
 
 
-                    if ($dokpasientID==$pasientID) 
+                    if ($dokpasientID!=$pasientID) 
                         {
-                            $unikpasientID=false;
+                            $unikpasientID=true;
                         }
 		            
                     else
                         {
-                            return $unikpasientID;
+                            $unikpasientID=false;
                         }
 
                         

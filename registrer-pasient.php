@@ -57,7 +57,7 @@
                         {
                             $filoperasjon="a";
 
-                            $linje= $pasientnavn . ";" . $pasientID . "\r\n";
+                            $linje=($pasientnavn . ";" . $pasientID . "\r\n");
 
                             $fil=fopen($filnavn,$filoperasjon);
 

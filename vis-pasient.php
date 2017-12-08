@@ -1,4 +1,5 @@
 <?php
+
     $filnavn="../../filer/pasient.txt";                                 /* bestemmer fil, i dette tilfellet /filer/student.txt i rot */
 
     $filoperasjon="r";                                                  /* velger lesning */
