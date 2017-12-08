@@ -4,7 +4,6 @@ include("start.html");
 
 ?>
 
-
 <h3>Registrer yrkesgruppe</h3>
 	<form method="post" action="registrer-yrkesgruppe.php" id="regyrkesgruppe" name="regyrkesgruppe" onSubmit="return validering()">
 		Tast inn yrkesgruppens navn: <input type="text" id="yrkesgruppe" name="yrkesgruppe" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musinn(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required /> <br />
@@ -21,32 +20,41 @@ include("start.html");
 
 <?php
 
-	$fil="../filer/yrkesgruppe.txt"; /* Kontroller mappestruktur. */
-
-if (isset($_POST["fortsett"])) /* Knappen for å skrive til fil er trykket. */
+if (isset($_POST["fortsett"])) 
 {
+	
+	/* Skriver til fil. */
+	
+	
+	$filyrkesgruppe="../filer/yrkesgruppe.txt"; /* Kontroller mappestruktur. */
+	
+	include("yrkesgruppe-validering.php");
+	
+	
 	$yrkesgruppe=$_POST["yrkesgruppe"];
-
-	if (!$yrkesgruppe) /* Hvis feltet er tomt, kommer denne beskjeden opp. */
+	$yrkesgruppe=trim($yrkesgruppe);
+	$yrkesgruppe=strtoupper($yrkesgruppe);
+	
+	$lovligYrkesgruppe=validerYrkesgruppe($yrkesgruppe); /* Validerer at yrkesgruppe ikke består av sifre eller symboler. */
+	$regYrkesgruppe=validerRegYrkesgruppe($yrkesgruppe); /* Validerer at yrkesgruppe er allerede registrert. */
+	
+	
+	if (!$yrkesgruppe) 
 	{
-		print ("Feltet må fylles ut.");
-	}
-	else if (preg_match('#[^a-z]+$#i', $yrkesgruppe)) /* Bruker funksjonen "preg_match" for å hindre bruk av tall og symboler ved registrering av yrkesgruppe. */
-	{
-		print ("Yrkesgrupper kan ikke inneholde tall eller symboler.");
+		print ("Feltet må fylles ut. <br>");
 	}
 	
-	else
+	if ($yrkesgruppe && $lovligYrkesgruppe)
 	{
-		$filoperasjon="a"; /* Filoperasjonen "a" blir brukt (tilføying ved slutten av fila, ikke overskriving).  */
+		$filoperasjon="a"; 
 
-		$linje=trim($yrkesgruppe) . "\n"; /* Linjen som skal skrives til blir opprettet. */
+		$linje=trim($yrkesgruppe) . "," . "\r\n"; 
 
-		$fil=fopen($fil,$filoperasjon); /* Filen åpnes, og "a" operasjonen (tilføying på slutten av filen) blir brukt.  */
+		$filyrkesgruppe=fopen($filyrkesgruppe,$filoperasjon); 
 
-		fwrite($fil,$linje); /* Første parameter inneholder navnet til fila som blir skrevet i, men ikke over. Andre parameter er strengen som blir tilføyd i fila. */
+		fwrite($filyrkesgruppe,$linje);
 
-		fclose($fil); /* Fila lukkes. */
+		fclose($filyrkesgruppe);
 
 		print("Yrkesgruppen '$yrkesgruppe' ble registrert.");
 	}
