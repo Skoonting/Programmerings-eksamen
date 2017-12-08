@@ -86,6 +86,11 @@
                 $opDato      = trim($opDato);
                 $filNavn     = trim($filNavn);
                 $beskrivelse = trim($beskrivelse);
+                
+                $bildeNr     = strtoupper($bildeNr);
+                $opDato      = strtoupper($opDato);
+                $filNavn     = strtoupper($filNavn);
+                $beskrivelse = strtoupper($beskrivelse);
 
                 if(!$bildeNr){
                     print("Bildenummer mangeler <br>");
