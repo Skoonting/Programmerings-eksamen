@@ -48,7 +48,7 @@ if (isset($_POST["fortsett"]))
 	{
 		$filoperasjon="a"; 
 
-		$linje=trim($yrkesgruppe) . "," . "\r\n"; 
+		$linje=trim($yrkesgruppe . "," . "\r\n"); 
 
 		$filyrkesgruppe=fopen($filyrkesgruppe,$filoperasjon); 
 
