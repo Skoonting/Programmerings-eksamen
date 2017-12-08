@@ -66,8 +66,8 @@ $maksAntall=strtoupper($maksAntall);
 $lovligbildenr=validerbildenr($bildenr);                  /* validerer at bilde er 3 sifre */ 
 $lovligmaksAntall=validermaksantall($maksAntall);			/* Validerer at pasienter er mer enn 0 */ 
 $regbilde=validerRegbilde($bildenr);                     /* Sjekker at bilde er registert */ 
-
-
+$regID=validerbehandlerid($behandlerID);				/* sjekker at ID ikke allerede finnes */ 
+$lovligyrkesgruppe=valideryrkesgruppe($yrkesgruppe);   /* sjekker alt yrkesgruppe finnes */ 
 
 if (!$behandlerID)
 	{
@@ -101,11 +101,27 @@ if (!$lovligmaksAntall)
 		Print ("Maks antall pasienter må fylles ut og være mer enn 1 <br>");
 	
 	}
-	
-	
 
+if (!$regbilde)
+	{	
+		print ("Bildenummeret er ikke registrert <br>");  
+
+	}
 	
-if ($behandlerID && $fornavn && $etternavn && $yrkesgruppe && $lovligbildenr && $lovligmaksAntall && $regbilde)  
+if (!$regID) 
+	{	
+		print ("BehandlerID finnes allerede <br>"); 	
+		
+	}	
+
+if (!$lovligyrkesgruppe)
+	{	
+		print ("Yrkesgruppen finnes ikke <br>"); 
+	
+	}
+	
+		
+if ($behandlerID && $fornavn && $etternavn && $yrkesgruppe && $lovligbildenr && $lovligmaksAntall && $regbilde && $regID && $lovligyrkesgruppe)  
 
 	{	
 		$filoperasjon="a"; 

@@ -88,10 +88,83 @@ while ($linje=fgets($bildefil))
 				
 			else 
 				{		
-				print ("Bildenummeret er ikke registrert <br>"); 
+				print (""); 
 				}
 		}
 	}
 }
+
+function validerbehandlerid($behandlerID)
+
+{
+
+$filbehandler="../../filer/behandler.txt";
+
+$regID=true; 
+
+$filoperasjonbehandler="r"; 
+
+$filbehandler=fopen($filbehandler,$filoperasjonbehandler);
+
+while ($linje=fgets($filbehandler)) 
+	{
+		if ($linje != "") 
+		{
+			$del=explode(",",$linje);
+			$beID=trim($del[0]);
+			$fornavn=trim($del[1]);
+			$etternavn=trim($del[2]);
+			$yrkesgruppe=trim($del[3]);
+			$bildenr=trim($del[4]);
+			$maksAntall=trim($del[5]);
+			
+			if ($beID != $behandlerID) 
+				{
+					return $regID;
+				}
+				
+			else 
+				{		
+					$regID=false;	
+					
+				
+				}
+		}
+	}
+}
+
+
+function valideryrkesgruppe($yrkesgruppe) /* sjekker at yrkesgruppe er registrert i txt */ 
+{
+
+$filyrkesgruppe="../../filer/yrkesgruppe.txt";
+
+$lovligyrkesgruppe=true; 
+
+$filoperasjonyrke="r"; 
+
+$filyrkesgruppe=fopen($filyrkesgruppe,$filoperasjonyrke);
+
+while ($linje=fgets($filyrkesgruppe)) 
+	{
+		if ($linje != "") 
+		{
+			$del=explode(";",$linje);
+			$yrke=trim($del[0]);
+			
+			
+			if ($yrke==$yrkesgruppe) 
+				{
+					return $lovligyrkesgruppe;
+				}
+				
+			else 
+				{		
+					$lovligyrkesgruppe=false;
+				}
+		}
+	}
+}
+
 
 ?>	
