@@ -32,6 +32,11 @@ if (isset($_POST ["fortsett"]))
 
 /* skrive til fil */ 
 
+$filbehandler="../../filer/behandler.txt";
+
+include("behandler-validering.php"); 
+
+
 $behandlerID=$_POST ["behandlerID"];
 $behandlerID=trim($behandlerID);
 $behandlerID=strtoupper($behandlerID);
@@ -58,7 +63,10 @@ $maksAntall=trim($maksAntall);
 $maksAntall=strtoupper($maksAntall);
 
 
-$filbehandler="../../filer/behandler.txt";
+$lovligbildenr=validerbildenr($bildenr);                  /* validerer at bilde er 3 sifre */ 
+$lovligmaksAntall=validermaksantall($maksAntall);			/* Validerer at pasienter er mer enn 0 */ 
+$regbilde=validerRegbilde($bildenr);                     /* Sjekker at bilde er registert */ 
+
 
 
 if (!$behandlerID)
@@ -81,41 +89,23 @@ if (!$yrkesgruppe)
 		Print ("Yrkesgruppe må fylles ut <br>");
 	}
 
-if (!$bildenr) 
+if (!$lovligbildenr) 
 	{
-		Print ("Bildenr må fylles ut <br>");
+		Print ("Bildenr må fylles ut med tre sifre <br>");
 	}
 	
-else if (!is_numeric($bildenr))
-	{
-		print ("Bildenr må være tall <br>");
-	}	
 
-else if (strlen($bildenr)!=3)
-	{
-		print ("bildenr må bestå av 3 sifre <br>");	
-	}
 
-if (!$maksAntall) 
+if (!$lovligmaksAntall) 
 	{
-		Print ("Maks antall pasienter må fylles ut <br>");
+		Print ("Maks antall pasienter må fylles ut og være mer enn 1 <br>");
 	
 	}
 	
-else if (!is_numeric($maksAntall))
-	{
-		print ("Antall pasienter må være et tall <br>");
-	}	
 	
-else if (is_numeric($maksAntall <= 0 )) 
-	{
-		
-		print ("Antall pasienter må være mer enn 0 <br>");
-	}	
 
 	
-	
-else  
+if ($behandlerID && $fornavn && $etternavn && $yrkesgruppe && $lovligbildenr && $lovligmaksAntall && $regbilde)  
 
 	{	
 		$filoperasjon="a"; 
