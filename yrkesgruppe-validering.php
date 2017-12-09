@@ -20,16 +20,18 @@ return $lovligyrkesgruppe;
 
 
 
-/*function validerRegYrkesgruppe($yrkesgruppe)
+//Sjekker om yrkesgruppen finnes allerede
+
+/*function yrkesgruppeexist($yrkesgruppe)
 {
 
 $filyrkesgruppe="../../filer/yrkesgruppe.txt";
 
-$regYrkesgruppe=true;
+$regyrkesgruppe=true;
 
-$filoperasjon="r";
+$filoperasjonyrke="r";
 
-$filyrkesgruppe=fopen($filyrkesgruppe,$filoperasjon);
+$filyrkesgruppe=fopen($filyrkesgruppe,$filoperasjonyrke);
 
 while ($linje=fgets($filyrkesgruppe))
 	{
@@ -40,14 +42,14 @@ while ($linje=fgets($filyrkesgruppe))
 			
 			if ($yg != $yrkesgruppe)
 			{
-				return $regYrkesgruppe;
+				return $regyrkesgruppe;
 			}
 			else
 			{
-				$regYrkesgruppe=false;
+				$regyrkesgruppe=false;
 			}
 		}
 	}
-}
-*/
+}*/
+
 ?>

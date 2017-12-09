@@ -32,6 +32,7 @@ if (isset($_POST["fortsett"]))
 	$yrkesgruppe=strtoupper($yrkesgruppe);
 	
 	$lovligyrkesgruppe=valideryrkesgruppe($yrkesgruppe);
+/*	$regyrkesgruppe=yrkesgruppeexist($yrkesgruppe);*/
 	
 
 
@@ -39,11 +40,12 @@ if (isset($_POST["fortsett"]))
     {
         print("Feltet må fylles ut.");
     }
+	
     if ($yrkesgruppe && $lovligyrkesgruppe)
     {
         $filoperasjon="a";
         
-        $linje=($yrkesgruppe . ", " . "\r\n");
+        $linje=($yrkesgruppe . "," . "\r\n");
         
         $filyrkesgruppe=fopen($filyrkesgruppe,$filoperasjon);
         
