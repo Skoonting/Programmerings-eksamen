@@ -167,4 +167,13 @@ while ($linje=fgets($filyrkesgruppe))
 }
 
 
+
+
+/* NETTSTED DEL 2 PASIENTREGISTRERING */ 
+
+
+
+
+
+
 ?>	
