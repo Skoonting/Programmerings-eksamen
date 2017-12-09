@@ -1,25 +1,26 @@
 <?php
 
-function validerYrkesgruppe($yrkesgruppe) /* Validerer yrkesgruppe */
+function valideryrkesgruppe($yrkesgruppe) /* Validerer yrkesgruppe */
 {
 
-$lovligYrkesgruppe=true;
+$lovligyrkesgruppe=true;
 
 	if (!$yrkesgruppe)
 	{
-		$lovligYrkesgruppe=false;
+		$lovligyrkesgruppe=false;
 	}
 	else if (preg_match('#[^a-z]+$#i', $yrkesgruppe)) /* Bruker funksjonen "preg_match" for å hindre bruk av tall og symboler ved registrering av yrkesgruppe. */
 	{
-		$lovligYrkesgruppe=false;
+		$lovligyrkesgruppe=false;
+		print("Navn på yrkesgrupper kan ikke inneholde sifre eller symboler.");
 	}
 	
-return $lovligYrkesgruppe;
+return $lovligyrkesgruppe;
 }
 
 
 
-function validerRegYrkesgruppe($yrkesgruppe)
+/*function validerRegYrkesgruppe($yrkesgruppe)
 {
 
 $filyrkesgruppe="../../filer/yrkesgruppe.txt";
@@ -28,25 +29,25 @@ $regYrkesgruppe=true;
 
 $filoperasjon="r";
 
-$yrkesgruppefil=fopen($filyrkesgruppe,$filoperasjon);
+$filyrkesgruppe=fopen($filyrkesgruppe,$filoperasjon);
 
-while ($linje=fgets($yrkesgruppefil))
+while ($linje=fgets($filyrkesgruppe))
 	{
 		if ($linje != "")
 		{
 			$del=explode(";",$linje);
-			$yrkesgruppe2=trim($del[0]);
+			$yg=trim($del[0]);
 			
-			if ($yrkesgruppe2==$yrkesgruppe)
+			if ($yg != $yrkesgruppe)
 			{
 				return $regYrkesgruppe;
 			}
 			else
 			{
-				print("Yrkesgruppen er ikke registrert <br>");
+				$regYrkesgruppe=false;
 			}
 		}
 	}
 }
-
+*/
 ?>

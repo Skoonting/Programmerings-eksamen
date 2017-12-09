@@ -7,27 +7,31 @@ include("start.html");
 
 <?php
 
-	$filnavn="../filer/yrkesgruppe.txt";
+	$filnavn="../../filer/yrkesgruppe.txt";
 
-	$filoperasjon="r"; /* Filoperasjonen "r" blir brukt (lesing av fila). */
-
+	
+	
+	$filoperasjon="r";
 	print("Følgende yrkesgrupper er registrert: <br /> <br /> <ul>");
 
-	$fil=fopen($filnavn, $filoperasjon); /* Filen åpnes og leses vha. $filoperasjon definert lik "r". */
+	$fil=fopen($filnavn, $filoperasjon); 
 
-	while ($linje = fgets($fil)) /* En loop som går helt til den siste linja er tom. */
+	while ($linje = fgets($fil)) 
 	{
-		if ($linje!="") /* Loopen stopper, når neste linje er tom. */
-		{
-			$del=explode (";" , $linje);
-			$yrkesgruppe=trim($del[0]);
-			print("<li> $yrkesgruppe </li> <br />");
-		}
-	}
+		if ($linje!="") 
+        {
+            $del=explode ("," , $linje);
+            
+            if ($linje == $linje)
+            {
+                print("<li> $linje </li> </br>"); 
+            }
 
+        }
+	}
+	print("</ul>");
 	fclose($fil); /* Lukker fila. */
 
-	print("</ul>");
 ?>
 
 
