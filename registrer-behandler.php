@@ -34,7 +34,10 @@ if (isset($_POST ["fortsett"]))
 
 $filbehandler="../../filer/behandler.txt";
 
+
+
 include("behandler-validering.php"); 
+
 
 
 $behandlerID=$_POST ["behandlerID"];
@@ -143,7 +146,8 @@ if ($behandlerID && $fornavn && $etternavn && $yrkesgruppe && $lovligbildenr && 
 		
 	}	
 	
- }	
+ }
+
 ?>	
 
 

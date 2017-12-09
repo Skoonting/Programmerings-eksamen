@@ -6,7 +6,7 @@ include("start.html");
 
 <h3> Vis info om angitt behandler</h3>
 	<form method="post" action="vis-info-behandler.php" id="infobehandler" name="infobehandler" onSubmit="return validering()">
-		BehandlerID: <input type="text" id="sok" name="sok" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musinn(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required /> <br>
+		Angi BehandlerID: <input type="text" id="sok" name="sok" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musinn(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required /> <br>
 		<input type="submit" value="Søk" id="fortsett" name="fortsett" /> 
 		<input type="reset" value="Nullstill feltene" id="nullstill" name="nullstill" onClick="fjernmelding()"/>
 	</form>
@@ -29,20 +29,24 @@ if (isset($_POST ["fortsett"]))
 
 $filbehandler="../../filer/behandler.txt";
 $filbilde="../../filer/bilde.txt";
-
+include("behandler-validering.php");
 
 $sok=$_POST ["sok"];
 $sok=trim($sok);
 
+$lovligbehandler=lovligbehandler($sok);
 
 
 
 if (!$sok) 
 	{
-		Print ("Søkefeltet må fylles ut <br>");
+		print ("Søkefeltet må fylles ut <br>");
 	}
 	
-	
+if (!$lovligbehandler) 
+	{	
+		print ("BehandlerID finnes ikke <br>"); 
+	}
 	
 else	
 
@@ -71,22 +75,45 @@ while ($behandlerlinje=fgets($fil)) /* lest en linje fra fil */
 			$bildenr=trim($del[4]);
 			$maksAntall=trim($del[5]);
 			
-			print ("$etternavn $fornavn <br>");
+			print ("Fornavn: $fornavn <br> Etternavn: $etternavn <br> Yrke: $yrkesgruppe <br> Bilde: $bildenr <br> Maks antall pasienter: $maksAntall<br>");
 		}
 		
 	}
 }
 
 fclose($fil); /* lukke */ 
+}
+/* søker i bilde.txt */ 
 
 
+if ($lovligbehandler)
+{	
+$filoperasjon="r";    /* read = lesing */ 
+  
+$fil2=fopen($filbilde,$filoperasjon); /* åpne */ 
 
+while ($bildelinje=fgets($fil2)) /* lest en linje fra fil */ 
+	{	
+		if ($bildelinje !="") /* ikke tom linje */ 
+		{
+			$delbilde=explode(";",$bildelinje); /* linjen blir delt opp */ 
+			$bildeID=trim($delbilde[0]);
+			
+			
+		if ($bildeID==$bildenr)
+		{
+		$bildenummer=trim($delbilde[0]);
+			$opDato=trim($delbilde[1]);
+			$filNavn=trim($delbilde[2]);
+			$beskrivelse=trim($delbilde[3]);
+			
+			print ("Opplastningsdato: $opDato <br> Filnavn: $filNavn <br> Beskrivelse: $beskrivelse <br>");
+		}
+		
+	}
+}
 
-
-
-
-
-
+fclose($fil2); /* lukke */ 
 }
 
 
