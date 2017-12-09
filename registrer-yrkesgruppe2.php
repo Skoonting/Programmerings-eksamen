@@ -40,8 +40,12 @@ if (isset($_POST["fortsett"]))
     {
         print("Feltet må fylles ut.");
     }
+	if (!$regyrkesgruppe)
+	{
+		print("Den angitte yrkesgruppen er allerede registrert.");
+	}
 	
-    if ($yrkesgruppe && $lovligyrkesgruppe)
+    if ($yrkesgruppe && $lovligyrkesgruppe && $regyrkesgruppe)
     {
         $filoperasjon="a";
         
