@@ -32,7 +32,7 @@ if (isset($_POST["fortsett"]))
 	$yrkesgruppe=strtoupper($yrkesgruppe);
 	
 	$lovligyrkesgruppe=valideryrkesgruppe($yrkesgruppe);
-/*	$regyrkesgruppe=yrkesgruppeexist($yrkesgruppe);*/
+	$regyrkesgruppe=yrkesgruppeexist($yrkesgruppe);
 	
 
 
