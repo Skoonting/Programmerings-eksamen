@@ -12,9 +12,9 @@
         
         <form method="post" action="registrer-pasient.php" id="registrerpasient" name="registrerpasient">
             
-            Pasient-navn <input type="text" id="pasientnavn" name="registrerpasientnavn" onKeyUp="vis(this.value)" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musover(this)" onMouseOut="musut()" required/> <br /> <br />
+            Pasient-navn <input type="text" id="registrerpasientnavn" name="registrerpasientnavn" onKeyUp="vis(this.value)" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musover(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required/> <br /> <br />
             
-            Pasient-id <input type="text" id="pasientid" name="registrerpasientID" onKeyUp="vis(this.value)" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musover(this)" onMouseOut="musut()" required/> <br /> <br />
+            Pasient-id <input type="text" id="registrerpasientID" name="registrerpasientID" onKeyUp="vis(this.value)" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musover(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required/> <br /> <br />
             
             <input type="submit" value="Registrer" id="fortsett" name="fortsett" /> 
             <input type="reset" value="Nullstill" id="nullstill" name="nullstill" onClick="fjernmelding()"/> <br /> 
@@ -26,21 +26,28 @@
             <?php
             if (isset($_POST ["fortsett"]))
                 {
-                    include("validerpasient.php");
+                    include("validerPasient.php");
                     
                     $filnavn="../../filer/pasient.txt";
                     
-                    $pasientnavn=$_POST["pasientnavn"];
+                    $pasientnavn=$_POST["registrerpasientnavn"];
+                    $pasientnavn=trim($pasientnavn);
+                    $pasientnavn=strtoupper($pasientnavn);
 
 
-                    $pasientID=$_POST["pasientid"];
+                    $pasientID=$_POST["registrerpasientID"];
+                    $pasientID=trim($pasientID);
+                    $pasientID=strtoupper($pasientID);
 
+
+                
                 
                 
                     $riktigpasientID=validerpasientID($pasientID);
                     $riktigpasientnavn=validerpasientnavn($pasientnavn);
-                    $unikpasientID=validerRegpasient($pasientID);
-
+                    $unikpasientID=validerunik($pasientID);
+                    
+                
                         
                     if (!$riktigpasientID)
                         {
@@ -63,7 +70,7 @@
                         {
                             $filoperasjon="a";
 
-                            $linje=($pasientnavn . ";" . $pasientID . "\r\n");
+                            $linje=($pasientnavn. ";". $pasientID. "\r\n");
 
                             $fil=fopen($filnavn,$filoperasjon);
 

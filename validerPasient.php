@@ -39,7 +39,7 @@
     }
 
 
-    function validerRegpasient($pasientID)
+    function validerunik($pasientid)
         {
 
         
@@ -58,17 +58,20 @@
                 {
                     $del=explode(";",$linje);
                     $pasientnavn=trim($del[0]);
-                    $pasID=trim($del[1]);
+                    $idtilpasient=trim($del[1]);
 
-
-                    if ($pasID != $pasientID) 
+                    
+                    
+                    if ($pasientid!=$idtilpasient) 
                         {
-                            $unikpasientID=true;
+                            return $unikpasientID;
                         }
 		            
                     else
                         {
                             $unikpasientID=false;
+                          
+
                         }
 
                         
