@@ -12,9 +12,9 @@
         
         <form method="post" action="registrer-pasient.php" id="registrerpasient" name="registrerpasient">
             
-            Pasient-navn <input type="text" id="registrerpasientnavn" name="registrerpasientnavn" onKeyUp="vis(this.value)" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musover(this)" onMouseOut="musut()" required/> <br /> <br />
+            Pasient-navn <input type="text" id="pasientnavn" name="registrerpasientnavn" onKeyUp="vis(this.value)" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musover(this)" onMouseOut="musut()" required/> <br /> <br />
             
-            Pasient-id <input type="text" id="registrerpasientID" name="registrerpasientID" onKeyUp="vis(this.value)" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musover(this)" onMouseOut="musut()" required/> <br /> <br />
+            Pasient-id <input type="text" id="pasientid" name="registrerpasientID" onKeyUp="vis(this.value)" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musover(this)" onMouseOut="musut()" required/> <br /> <br />
             
             <input type="submit" value="Registrer" id="fortsett" name="fortsett" /> 
             <input type="reset" value="Nullstill" id="nullstill" name="nullstill" onClick="fjernmelding()"/> <br /> 
@@ -30,9 +30,13 @@
                     
                     $filnavn="../../filer/pasient.txt";
                     
-                    $pasientnavn=$_POST ["registrerpasientnavn"];
-                    $pasientID=$_POST ["registrerpasientID"];
+                    $pasientnavn=$_POST["pasientnavn"];
 
+
+                    $pasientID=$_POST["pasientid"];
+
+                
+                
                     $riktigpasientID=validerpasientID($pasientID);
                     $riktigpasientnavn=validerpasientnavn($pasientnavn);
                     $unikpasientID=validerRegpasient($pasientID);
@@ -52,6 +56,8 @@
                         {
                             print("Angitt pasient-id er allerede i bruk.");
                         }
+                
+
                 
                     if ($riktigpasientID && $pasientnavn && $unikpasientID)
                         {

@@ -44,26 +44,26 @@
 
         
         
-        $filpasient="../../filer/pasient.txt";
+        $filnavn="../../filer/pasient.txt";
 
         $unikpasientID=true; 
 
-        $filoperasjonLes="r"; 
+        $filoperasjon="r"; 
 
-        $pasientfil=fopen($filpasient,$filoperasjonLes);
+        $fil=fopen($filnavn,$filoperasjon);
 
-        while ($linje=fgets($pasientfil)) 
+        while ($linje=fgets($fil)) 
             {
                 if ($linje != "") 
                 {
                     $del=explode(";",$linje);
                     $pasientnavn=trim($del[0]);
-                    $dokpasientID=trim($del[1]);
+                    $pasID=trim($del[1]);
 
 
-                    if ($dokpasientID != $pasientID) 
+                    if ($pasID != $pasientID) 
                         {
-                            return $unikpasientID;
+                            $unikpasientID=true;
                         }
 		            
                     else
