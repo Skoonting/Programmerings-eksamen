@@ -31,7 +31,9 @@ if (isset($_POST["fortsett"]))
 	$yrkesgruppe=trim($yrkesgruppe);
 	$yrkesgruppe=strtoupper($yrkesgruppe);
 	
+	
 	$lovligyrkesgruppe=valideryrkesgruppe($yrkesgruppe);
+	
 	$regyrkesgruppe=yrkesgruppeexist($yrkesgruppe);
 	
 
@@ -40,6 +42,10 @@ if (isset($_POST["fortsett"]))
     {
         print("Feltet må fylles ut.");
     }
+	if(!$lovligyrkesgruppe)
+	{
+		print("Navn på yrkesgrupper kan ikke inneholde sifre eller symboler.");
+	}
 	if (!$regyrkesgruppe)
 	{
 		print("Den angitte yrkesgruppen er allerede registrert.");

@@ -5,22 +5,19 @@ function valideryrkesgruppe($yrkesgruppe) /* Validerer yrkesgruppe */
 
 $lovligyrkesgruppe=true;
 
-	if (!$yrkesgruppe)
+	if (preg_match('#[^a-z]+$#i', $yrkesgruppe)) /* Bruker funksjonen "preg_match" for å hindre bruk av tall og symboler ved registrering av yrkesgruppe. */
 	{
 		$lovligyrkesgruppe=false;
 	}
-	else if (preg_match('#[^a-z]+$#i', $yrkesgruppe)) /* Bruker funksjonen "preg_match" for å hindre bruk av tall og symboler ved registrering av yrkesgruppe. */
+	else
 	{
-		$lovligyrkesgruppe=false;
-		print("Navn på yrkesgrupper kan ikke inneholde sifre eller symboler.");
+		return $lovligyrkesgruppe;
 	}
-	
-return $lovligyrkesgruppe;
 }
 
 
 
-Sjekker om yrkesgruppen finnes allerede
+/* Sjekker om yrkesgruppen finnes allerede. */
 
 function yrkesgruppeexist($yrkesgruppe)
 {
