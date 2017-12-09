@@ -20,9 +20,9 @@ return $lovligyrkesgruppe;
 
 
 
-//Sjekker om yrkesgruppen finnes allerede
+Sjekker om yrkesgruppen finnes allerede
 
-/*function yrkesgruppeexist($yrkesgruppe)
+function yrkesgruppeexist($yrkesgruppe)
 {
 
 $filyrkesgruppe="../../filer/yrkesgruppe.txt";
@@ -50,6 +50,6 @@ while ($linje=fgets($filyrkesgruppe))
 			}
 		}
 	}
-}*/
+}
 
 ?>
