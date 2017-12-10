@@ -34,7 +34,7 @@ else
 
 function validerRegistrerBilde()
 {
-var bilde=document.getElementById("bilde").value;
+var bilde=document.getElementById("bildenr").value;
 
   var lovligbilde=validerbilde(bilde);
 
