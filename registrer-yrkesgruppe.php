@@ -3,11 +3,12 @@
 include("start.html");
 ?>
 
+
 <h3>Registrer yrkesgruppe</h3>
 
-<form method="post" action="registrer-yrkesgruppe.php" id="regyrkesgruppe" name="regyrkesgruppe" >
+<form method="post" action="" id="regyrkesgruppe" name="regyrkesgruppe" >
 
-			Yrkesgruppe:			<input type="text" id="yrkesgruppe" name="yrkesgruppe" required /> <br/>
+			Yrkesgruppe:			<input type="text" id="yrkesgruppe" name="yrkesgruppe" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musinn(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required /> <br/>
 									<input type="submit" value="Registrer yrkesgruppe" id="fortsett" name="fortsett" />
 									<input type="reset" value="Fjern inntasting" id="nullstill" name="nullstill" />
 </form>
@@ -19,54 +20,46 @@ include("start.html");
 <div id="melding"></div>
 
 <?php
-
-    $filyrkesgruppe="../../filer/yrkesgruppe.txt";
-	
 if (isset($_POST["fortsett"]))
 {
+
+	$filnavn="../../filer/yrkesgruppe.txt";
 	
 	include("yrkesgruppe-validering.php");
 	
-    $yrkesgruppe=$_POST["yrkesgruppe"];
-	$yrkesgruppe=trim($yrkesgruppe);
-	$yrkesgruppe=strtoupper($yrkesgruppe);
-	
+    $yrkesgruppe=$_POST ["yrkesgruppe"];
 	
 	$lovligyrkesgruppe=valideryrkesgruppe($yrkesgruppe);
-	
-	$regyrkesgruppe=yrkesgruppeexist($yrkesgruppe);
-	
 
 
-    if (!$yrkesgruppe)
-    {
-        print("Feltet må fylles ut.");
-    }
-	if(!$lovligyrkesgruppe)
+	if (!$lovligyrkesgruppe)
 	{
-		print("Navn på yrkesgrupper kan ikke inneholde sifre eller symboler.");
-	}
-	if (!$regyrkesgruppe)
-	{
-		print("Den angitte yrkesgruppen er allerede registrert.");
-	}
+		print("Navn på yrkesgrupper kan ikke inneholde sifre eller symboler; bare bokstaver.");
+	}	
 	
-    if ($yrkesgruppe && $lovligyrkesgruppe && $regyrkesgruppe)
+
+	include("regyrkesgruppe.php");
+	
+
+   if ($yrkesgruppe && $lovligyrkesgruppe && $regyrkesgruppe)
     {
         $filoperasjon="a";
         
         $linje=($yrkesgruppe . "," . "\r\n");
         
-        $filyrkesgruppe=fopen($filyrkesgruppe,$filoperasjon);
+        $fil=fopen($filnavn,$filoperasjon);
         
-        fwrite($filyrkesgruppe,$linje); 
+        fwrite($fil,$linje); 
         
-        fclose($filyrkesgruppe);
+        fclose($fil);
         
         print("Yrkesgruppen $yrkesgruppe ble registrert.");
     }
 }
 
-include("slutt.html");
+?>
 
+
+<?php
+include("slutt.html");
 ?>
