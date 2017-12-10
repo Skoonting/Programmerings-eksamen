@@ -6,12 +6,12 @@ include("start.html");
 
 <h3> Registrer behandler</h3>
 	<form method="post" action="registrer-behandler.php" id="regbehandler" name="regbehandler" onSubmit="return lovligbilde()">
-		BehandlerID: <input type="text" id="behandlerID" name="behandlerID" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musinn(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required /> <br>
-		Fornavn: <input type="text" id="fornavn" name="fornavn" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musinn(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required /> <br>
-		Etternavn:<input type="text" id="etternavn" name="etternavn" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musinn(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required /> <br>
-		Yrkesgruppe:<input type="text" id="yrkesgruppe" name="yrkesgruppe" onKeyUp="vis(this.value)" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musinn(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required /> <br>
-		Bildenr:<input type="text" id="bildenr" name="bildenr" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musinn(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required /> <br>
-		Maks antall pasienter:<input type="text" id="maksAntall" name="maksAntall" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musinn(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required /> <br>
+		BehandlerID: <input type="text" id="behandlerID" name="behandlerID" onFocus="fokus(this)" onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onChange="endreTilStoreBokstaver(this)" required /> <br>
+		Fornavn: <input type="text" id="fornavn" name="fornavn" onFocus="fokus(this)" onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onChange="endreTilStoreBokstaver(this)" required /> <br>
+		Etternavn:<input type="text" id="etternavn" name="etternavn" onFocus="fokus(this)" onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onChange="endreTilStoreBokstaver(this)" required /> <br>
+		Yrkesgruppe:<input type="text" id="yrkesgruppe" name="yrkesgruppe" onKeyUp="vis(this.value)" onFocus="fokus(this)" onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onChange="endreTilStoreBokstaver(this)" required /> <br>
+		Bildenr:<input type="text" id="bildenr" name="bildenr" onFocus="fokus(this)" onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onChange="endreTilStoreBokstaver(this)" required /> <br>
+		Maks antall pasienter:<input type="text" id="maksAntall" name="maksAntall" onFocus="fokus(this)" onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onChange="endreTilStoreBokstaver(this)" required /> <br>
 		<input type="submit" value="Registrer" id="fortsett" name="fortsett" /> 
 		<input type="reset" value="Nullstill feltene" id="nullstill" name="nullstill" onClick="fjernmelding()"/>
 	</form>

@@ -6,7 +6,7 @@ include("start.html");
 
 <h3> Vis info om angitt behandler</h3>
 	<form method="post" action="vis-info-behandler.php" id="infobehandler" name="infobehandler" onSubmit="return validering()">
-		Angi BehandlerID: <input type="text" id="sok" name="sok" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musinn(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required /> <br>
+		Angi BehandlerID: <input type="text" id="sok" name="sok" onFocus="fokus(this)" onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onChange="endreTilStoreBokstaver(this)" required /> <br>
 		<input type="submit" value="Søk" id="fortsett" name="fortsett" /> 
 		<input type="reset" value="Nullstill feltene" id="nullstill" name="nullstill" onClick="fjernmelding()"/>
 	</form>

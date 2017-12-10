@@ -7,7 +7,7 @@ include("start.html");
 <h3> Søk i yrkesgruppe </h3>
 
 	<form method="post" action="sok-behandler.php" id="sokbehandler" name="sokbehandler" onSubmit="return validering()">
-		Yrkesgruppe:<input type="text" id="sok" name="sok" onKeyUp="vis(this.value)" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musinn(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required /> <br>
+		Yrkesgruppe:<input type="text" id="sok" name="sok" onKeyUp="vis(this.value)" onFocus="fokus(this)" onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onChange="endreTilStoreBokstaver(this)" required /> <br>
 		<input type="submit" value="Søk" id="fortsett" name="fortsett" /> 
 		<input type="reset" value="Nullstill feltene" id="nullstill" name="nullstill" onClick="fjernmelding()"/>
 	</form>
