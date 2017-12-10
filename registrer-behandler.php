@@ -70,7 +70,7 @@ $lovligbildenr=validerbildenr($bildenr);                  /* validerer at bilde 
 $lovligmaksAntall=validermaksantall($maksAntall);			/* Validerer at pasienter er mer enn 0 */ 
 $regbilde=validerRegbilde($bildenr);                     /* Sjekker at bilde er registert */ 
 $regID=validerbehandlerid($behandlerID);				/* sjekker at ID ikke allerede finnes */ 
-$lovligyrkesgruppe=valideryrkesgruppe($yrkesgruppe);   /* sjekker alt yrkesgruppe finnes */ 
+$lovligyrkesgruppe=lovligyrkesgruppe($yrkesgruppe);   /* sjekker alt yrkesgruppe finnes */ 
 
 if (!$behandlerID)
 	{
@@ -130,7 +130,7 @@ if ($behandlerID && $fornavn && $etternavn && $yrkesgruppe && $lovligbildenr && 
 		$filoperasjon="a"; 
 		
 		   
-		$behandlerlinje=($behandlerID. ",". $fornavn.",". $etternavn. ",". $yrkesgruppe. ",". $bildenr. ",". $maksAntall. "\r\n");
+		$behandlerlinje=($behandlerID. ",". $fornavn.",". $etternavn. ",". $yrkesgruppe. ",". $bildenr. ",". $maksAntall. ",". "\r\n");
 			
 		
 		

@@ -134,7 +134,7 @@ while ($linje=fgets($filbehandler))
 }
 
 
-function valideryrkesgruppe($yrkesgruppe) /* sjekker at yrkesgruppe er registrert i txt */ 
+function lovligyrkesgruppe($yrkesgruppe) /* sjekker at yrkesgruppe er registrert i txt */ 
 {
 
 $filyrkesgruppe="../../filer/yrkesgruppe.txt";
@@ -149,12 +149,13 @@ while ($linje=fgets($filyrkesgruppe))
 	{
 		if ($linje != "") 
 		{
-			$del=explode(";",$linje);
+			$del=explode(",",$linje);
 			$yrke=trim($del[0]);
 			
 			
 			if ($yrke==$yrkesgruppe) 
 				{
+					$lovligyrkesgruppe=true;
 					return $lovligyrkesgruppe;
 				}
 				
