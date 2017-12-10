@@ -5,7 +5,7 @@ include("start.html");
 ?>
 
 <h3> Registrer behandler</h3>
-	<form method="post" action="registrer-behandler.php" id="regbehandler" name="regbehandler" onSubmit="return validering()">
+	<form method="post" action="registrer-behandler.php" id="regbehandler" name="regbehandler" onSubmit="return lovligbilde()">
 		BehandlerID: <input type="text" id="behandlerID" name="behandlerID" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musinn(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required /> <br>
 		Fornavn: <input type="text" id="fornavn" name="fornavn" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musinn(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required /> <br>
 		Etternavn:<input type="text" id="etternavn" name="etternavn" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musinn(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required /> <br>
@@ -97,6 +97,7 @@ if (!$lovligbildenr)
 		Print ("Bildenr må fylles ut med tre sifre <br>");
 	}
 	
+	
 
 
 if (!$lovligmaksAntall) 
@@ -124,7 +125,7 @@ if (!$lovligyrkesgruppe)
 	}
 	
 		
-if ($behandlerID && $fornavn && $etternavn && $yrkesgruppe && $lovligbildenr && $lovligmaksAntall && $regbilde && $regID && $lovligyrkesgruppe)  
+if ($behandlerID && $fornavn && $etternavn && $yrkesgruppe && $lovligbildenr  && $lovligmaksAntall && $regbilde && $regID && $lovligyrkesgruppe)  
 
 	{	
 		$filoperasjon="a"; 

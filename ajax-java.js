@@ -85,3 +85,78 @@ function vis(yrkesgruppe)
 }
 
 
+/* slutt ajax */ 
+
+
+/* rød feilmld */ 
+
+function lovligbilde()
+{
+var bildenr=document.getElementById("bildenr").value	
+
+var lovligbildenr=true;
+
+var feilmelding="";
+
+if (!bildenr)
+	{
+	feilmelding="Bildenr er ikke fylt ut <br>"; 
+	lovligbildenr=false;
+	}
+
+if (bildenr.length!=3)	
+	{
+	feilmelding=feilmelding + "Bildenr må bestå av 3 sifre <br>";
+	lovligbildenr=false;	
+	}
+
+if (isNaN(bildenr))	
+	{
+	feilmelding=feilmelding + "bildenr kan kun bestå av sifre <br>";
+	lovligbildenr=false;
+	}
+
+if (lovligbildenr) 
+	{	
+		return true;
+	}
+else 
+	{	
+		document.getElementById("javamelding").style.color="red";
+		document.getElementById("javamelding").innerHTML=feilmelding;
+		return false;
+	}
+}	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

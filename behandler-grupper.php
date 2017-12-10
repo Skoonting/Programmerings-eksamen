@@ -35,6 +35,33 @@ while ($linje=fgets($fil)) /* fgets leser frem til linjeskift  */
 		
 		if($linje==$linje)
 		{
+			print("");
+
+		}	
+	}
+}	
+
+fclose($fil); /* lukke */ 
+
+
+$filnavn2="../../filer/yrkesgruppe.txt";
+
+
+$filoperasjon="r";    /* read = lesing */ 
+
+$fil2=fopen($filnavn2,$filoperasjon);  /* åpne */ 
+
+while ($linje2=fgets($fil2)) /* fgets leser frem til linjeskift  */
+{
+		if ($linje2!="")            /*sjekker at linje ikke er tom */ 
+	 		
+	{
+		$del2=explode(",",$linje2);
+		$yrkesgruppe=trim($del2[0]);
+		
+		
+		if($linje2==$linje2)
+		{
 			print("$yrkesgruppe $etternavn $fornavn </br>");
 
 		}	
@@ -42,6 +69,9 @@ while ($linje=fgets($fil)) /* fgets leser frem til linjeskift  */
 }	
 
 fclose($fil); /* lukke */ 
+
+
+
 
 
 

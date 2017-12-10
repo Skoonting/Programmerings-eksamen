@@ -1,5 +1,4 @@
 <?php 
-
 function validerbildenr($bildenr) 
 
 /* validerer bildenr */ 
@@ -25,9 +24,6 @@ else if (!is_numeric($bildenr))  /* false hvis ikke sifre */
 return $lovligbildenr;
 
 }	
-
-
-
 
 function validermaksantall($maksAntall)
 {
