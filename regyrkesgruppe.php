@@ -28,7 +28,7 @@ $eksisterendeBilderArray = array(); //Lager en array som skal ha informasjon i s
 	if($eksisterendeBilderArray)
 	{ //Hvis det er noen ting i arrayen betyr det at det den finnes fra før av i koden, derfor blir den false.
 		$regyrkesgruppe = false; //Bare et tilfeldig varable navn, skal endre det etterpå en gang.
-		print("Denne koden finnes allerede<br>"); 
+		print("Denne yrkesgruppen er allerede registrert.<br>"); 
 	}
 	else
 	{ //Hvis den er tom betyr det at den ikke fant noen som hadde samme navnet
