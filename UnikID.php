@@ -22,8 +22,8 @@ while($linje1 = fgets ($fil1)){
 }
 
 if($eksisterendeBilderArray){ //Hvis det er noen ting i arrayen betyr det at det den finnes fra før av i koden, derfor blir den false.
-    $qqq = false;
-    print("Denne koden finnes allerede<br>");
+    $qqq = false; //Bare et tilfeldig varable navn, skal endre det etterpå en gang.
+    print("Denne koden finnes allerede<br>"); 
 } else { //Hvis den er tom betyr det at den ikke fant noen som hadde samme navnet
     $qqq = true;
 }
