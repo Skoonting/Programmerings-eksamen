@@ -39,43 +39,8 @@
     }
 
 
-    function validerunik($pasientid)
-        {
 
-        
-        
-        $filnavn="../../filer/pasient.txt";
 
-        $unikpasientID=true; 
 
-        $filoperasjon="r"; 
 
-        $fil=fopen($filnavn,$filoperasjon);
-
-        while ($linje=fgets($fil)) 
-            {
-                if ($linje != "") 
-                {
-                    $del=explode(";",$linje);
-                    $pasientnavn=trim($del[0]);
-                    $idtilpasient=trim($del[1]);
-
-                    
-                    
-                    if ($pasientid!=$idtilpasient) 
-                        {
-                            return $unikpasientID;
-                        }
-		            
-                    else
-                        {
-                            $unikpasientID=false;
-                          
-
-                        }
-
-                        
-                }
-            }
-        }
 ?>
