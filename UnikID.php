@@ -10,7 +10,7 @@ $eksisterendeBilderArray = array(); //Lager en array som skal ha informasjon i s
 while($linje1 = fgets ($fil1)){
     if($linje1 != ""){
         $del1 = explode(";", $linje1);
-        $kKode1 = trim($del1[0]);
+        $kKode1 = trim($del1[0]); //kKode1 er midlertidlig variabel, skal endre det etterpå
 
         if($kKode1 == $bildeNr){
             array_push($eksisterendeBilderArray, "hei"); //Jeg valgte bare et random ord
