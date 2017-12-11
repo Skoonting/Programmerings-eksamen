@@ -5,17 +5,16 @@
         <h2>Registerer pasient</h2>
         
         <form method="post" action="registrer-pasient.php" id="registrerpasient" name="registrerpasient">    
-            Pasient-navn <input type="text" id="pasientnavn" name="pasientnavn" onFocus="fokus(this)" onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onChange="endreTilStoreBokstaver(this)" required/>
-            <br /> <br />
-            Pasient-id <input type="text" id="pasientID" name="pasientID" onFocus="fokus(this)" onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onChange="endreTilStoreBokstaver(this)" required/> 
-            <br /> <br />
+            Pasient-navn <input type="text" id="pasientnavn" name="pasientnavn" onFocus="fokus(this)" onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onChange="endreTilStoreBokstaver(this)" required/> <br /> <br />
+            Pasient-id <input type="text" id="pasientID" name="pasientID" onFocus="fokus(this)" onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onChange="endreTilStoreBokstaver(this)" required/> <br /> <br />
             <input type="submit" value="Registrer" id="fortsett" name="fortsett" /> 
-            <input type="reset" value="Nullstill" id="nullstill" name="nullstill" onClick="fjernmelding()"/> <br /> 
+            <input type="reset" value="Nullstill" id="nullstill" name="nullstill" onClick="fjernMelding()"/> <br /> 
         </form>
         
-            <div id="melding"></div>
+            <div id="javamelding"></div>
             <div id="feilmelding"></div>
-        
+            <div id="melding"></div>
+
 <?php
             if (isset($_POST ["fortsett"])) /* PHP-koden vil kunne aktivere dersom 'Fortsett' er trykt */
                 {
@@ -27,6 +26,10 @@
                     $pasientnavn=trim($pasientnavn);    
                     $pasientnavn=strtoupper($pasientnavn);
 
+                    $yrkesgruppe=$_POST ["yrkesgruppe"];
+                    $yrkesgruppe=trim($yrkesgruppe);    
+                    $yrkesgruppe=strtoupper($yrkesgruppe);
+                
                     $pasientID=$_POST["pasientID"];
                     $pasientID=trim($pasientID);
                     $pasientID=strtoupper($pasientID);
