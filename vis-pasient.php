@@ -1,23 +1,23 @@
 <?php
+    $filnavn="../../filer/pasient.txt";                                 
 
-    $filnavn="../../filer/pasient.txt";                                 /* bestemmer fil, i dette tilfellet /filer/student.txt i rot */
-
-    $filoperasjon="r";                                                  /* velger lesning */
+    $filoperasjon="r";                                                 
 
     print("<h2>Disse pasientene er registrert.</h2>");
 
-    $fil=fopen($filnavn,$filoperasjon);                                 /* her blir det settet en måte å åpne fil med lesning samtidig */
+    $fil=fopen($filnavn,$filoperasjon);                                 
 
-    while($linje=fgets($fil))                                           /* får tak i filen, åpner og leser den */
+    while($linje=fgets($fil))                                           
       {
-           if($linje!="")                                                  /* gjør slik at 'while' gjentar seg helt til linjen er tom */
+           if($linje!="")                                                  
             {
-             $del=explode(";" ,$linje);                            /* deler opp linjene + bruker trim til å få bort unnødvendige mellomrom */
+             $del=explode(";" ,$linje);                            
              $pasientnavn=trim($del[0]);
              $pasientid=trim($del[1]);
 
-             print("$pasientnavn - $pasientid<br />");
+             print("$pasientid - $pasientnavn<br />");
             }  
      }
-    fclose($fil);                                                       /* lukker fil */          
+
+    fclose($fil);                                                          
 ?>
