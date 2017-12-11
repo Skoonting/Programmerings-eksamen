@@ -29,7 +29,7 @@ if (isset($_POST ["fortsett"]))
 
 /* lese fil */ 
 
-$filnavn="../../filer/behandler.txt";
+$filnavn="../filer/behandler.txt";
 
 $sok=$_POST ["sok"];
 $sok=trim($sok);

@@ -27,8 +27,8 @@ if (isset($_POST ["fortsett"]))
 
 /* lese fil */ 
 
-$filbehandler="../../filer/behandler.txt";
-$filbilde="../../filer/bilde.txt";
+$filbehandler="../filer/behandler.txt";
+$filbilde="../filer/bilde.txt";
 include("behandler-validering.php");
 
 $sok=$_POST ["sok"];

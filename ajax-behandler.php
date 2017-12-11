@@ -1,6 +1,6 @@
 <?php /* søker i klasseliste ajax */ 
 
-$filnavn="../../filer/behandler.txt";
+$filnavn="../filer/behandler.txt";
 
 $yrkesgruppe=$_GET ["yrkesgruppe"];
 

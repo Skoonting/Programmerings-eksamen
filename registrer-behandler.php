@@ -32,7 +32,8 @@ if (isset($_POST ["fortsett"]))
 
 /* skrive til fil */ 
 
-$filbehandler="../../filer/behandler.txt";
+$filbehandler="../filer/behandler.txt";
+
 
 
 

@@ -13,7 +13,7 @@ include("start.html");
 
 /* lese fil */ 
 
-$filnavn="../../filer/behandler.txt";
+$filnavn="../filer/behandler.txt";
 
 
 $filoperasjon="r";    /* read = lesing */ 

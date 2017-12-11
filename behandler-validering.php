@@ -59,7 +59,7 @@ return $lovligmaksantall;
 function validerRegbilde($bildenr)
 {
 
-$filbilde="../../filer/bilde.txt";
+$filbilde="../filer/bilde.txt";
 
 $regbilde=true; 
 
@@ -94,7 +94,7 @@ function validerbehandlerid($behandlerID)
 
 {
 
-$filbehandler="../../filer/behandler.txt";
+$filbehandler="../filer/behandler.txt";
 
 $regID=true; 
 
@@ -133,7 +133,7 @@ while ($linje=fgets($filbehandler))
 function lovligyrkesgruppe($yrkesgruppe) /* sjekker at yrkesgruppe er registrert i txt */ 
 {
 
-$filyrkesgruppe="../../filer/yrkesgruppe.txt";
+$filyrkesgruppe="../filer/yrkesgruppe.txt";
 
 $lovligyrkesgruppe=true; 
 
@@ -171,7 +171,7 @@ while ($linje=fgets($filyrkesgruppe))
 function lovligbehandler($sok) /* sjekker at behandlerid finnes i txt */ 
 {
 
-$filbehandler="../../filer/behandler.txt";
+$filbehandler="../filer/behandler.txt";
 
 $lovligbehandler=true; 
 
