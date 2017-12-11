@@ -1,6 +1,6 @@
 <?php
 
-$filnavn1 = "../../filer/yrkesgruppe.txt"; 
+$filnavn1 = "../filer/yrkesgruppe.txt"; 
 
 $filoperasjon1="r";
 

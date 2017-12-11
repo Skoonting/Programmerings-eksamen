@@ -7,7 +7,7 @@ include("start.html");
 
 <?php
 
-	$filnavn="../../filer/yrkesgruppe.txt";
+	$filnavn="../filer/yrkesgruppe.txt";
 
 	
 	

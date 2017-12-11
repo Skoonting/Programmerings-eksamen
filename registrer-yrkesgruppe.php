@@ -7,11 +7,11 @@ include("start.html");
 
 <h3>Registrer yrkesgruppe</h3>
 
-<form method="post" action="" id="regyrkesgruppe" name="regyrkesgruppe" >
+<form method="post" action="" id="regyrkesgruppe" name="regyrkesgruppe" onSumbit="return " >
 
 	Yrkesgruppe:	<input type="text" id="yrkesgruppe" name="yrkesgruppe" onFocus="fokus(this)" onBlur="mistetfokus(this)" onMouseOver="musinn(this)" onMouseOut="musut()" onChange="endretilstorebokstaver(this)" required /> <br/>
 					<input type="submit" value="Registrer yrkesgruppe" id="fortsett" name="fortsett" />
-					<input type="reset" value="Fjern inntasting" id="nullstill" name="nullstill" />
+					<input type="reset" value="Fjern inntasting" id="nullstill" name="nullstill" onClick="fjernMelding()" />
 </form>
 
 <div id="javamelding"></div>
@@ -24,7 +24,7 @@ include("start.html");
 if (isset($_POST["fortsett"]))
 {
 
-	$filnavn="../../filer/yrkesgruppe.txt";
+	$filnavn="../filer/yrkesgruppe.txt";
 	
 	include("yrkesgruppe-validering.php");
 	
