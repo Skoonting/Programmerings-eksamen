@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+  </head>
+  <body>
+  <div id="outPut"></div>
+  <script>
+    var arrayen = [
+        ["<strong>Lege</strong><br>", ["Per<br>", "Arne<br>", "Jens<br>"]], 
+        ["<strong>Psykolog</strong><br>", ["Per<br>", "Arne<br>", "Jens<br>"]], 
+        ["<strong>Lærer</strong><br>", ["Per<br>", "Arne<br>", "Jens<br>"]],
+        ["<strong>Maler</strong><br>", ["Per<br>", "Arne<br>", "Jens<br>"]],
+        ["<strong>Programmer</strong><br>", ["Per<br>", "Arne<br>", "Jens<br>"]],
+        ["<strong>Regnskapsfører</strong><br>", ["Per<br>", "Arne<br>", "Jens<br>"]],
+        ["<strong>Elektrikker</strong><br>", ["Per<br>", "Arne<br>", "Jens<br>"]],
+        ["<strong>Frisør</strong><br>", ["Per<br>", "Arne<br>", "Jens<br>"]]
+    ] 
+    
+    arrayen.sort(); //Denne funksjonen sorterer arrayen
+    
+    arrayen = arrayen.join(""); //Denne funksjonen bruker jeg for å fjerne kommaer som er i arrayen
+      
+    document.getElementById("outPut").innerHTML = arrayen; 
+    
+  </script>
+  </body>
+</html>
