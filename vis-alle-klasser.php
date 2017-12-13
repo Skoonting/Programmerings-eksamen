@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="no">
-  <head>
-    <meta charset="UTF-8">
-  </head>
-  <body>
-   <h3>Vis alle klasser</h3>
-    
-    <?php
+<?php
     $filnavn = "klasse.txt";
 
     $filoperasjon="r";
@@ -18,10 +10,13 @@
     while($linje = fgets ($fil)){
         if($linje != ""){
             $del = explode(";", $linje);
-            $kKode = trim($del[0]);
-            $kNavn = trim($del[1]);
+            $kKode = trim($del[0]); //dette er yrkesgruppe
+            $kNavn = trim($del[1]); //dette er fornavn
+            $eNavn = trim($del[2]); //dette er etternavn
+            $yNavn = trim($del[3]); //dette er ID
+            //Kan være lurt å navn på variablene
 
-            array_push($a, array(($kKode), array($kNavn, $kKode, $kNavn)));
+            array_push($a, array(($kKode), array($eNavn, $kNavn, $yNavn)));
             /*
             array_push($a, array((verdien man vill sortere på), array(verdier i arrayen)));
             */
@@ -33,17 +28,24 @@
     $lengdeJ = count($a); //Finner ut hvor mange arrayer/verdier det er i arrayen
 
     $testStreng = ""; //Denne verdien lagrer informasjonen som en streng, som senere skal bli skrevet ut
-
+    
+    
+    print("<table>");
+    print("<tr><th>Yrke</th><th>Etternavn</th><th>Fornavn</th><th>ID</th></tr>");
+    
     for($j = 0; $j < $lengdeJ; $j++){ //første for-loop går igjennom hoved-arrayen
+        
         $lengdeK = count($a[$j][1]); //sjekker hvor mange verdier det er inni hver under-array
+        
         for($k = 0; $k < $lengdeK; $k++){ //går igjennom under-arrayen
-            $testStreng .= $a[$j][1][$k]; //legger til alle underverdiene til underarrayen
+            $testStreng .= "<td>".$a[$j][1][$k]."</td>"; //legger til alle underverdiene til underarrayen
         }
-        print("Yrke: " . $a[$j][0] . " Person: " . $testStreng . "<br>"); //Første er yrket, det andre er verdien til denne yrken
+        print("<tr><td>" . $a[$j][0] . "</td>" . $testStreng . "</tr>"); //Første er yrket, det andre er verdien til denne yrken
         $testStreng = ""; //sletter det som er i strengen, eller så vil alt bli skrivd opp på nytt
     }
+    
+    print("</table>");
+    
 
     fclose($fil);
-    ?>
-  </body>
-</html>
+?>
