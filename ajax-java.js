@@ -197,7 +197,7 @@ function validateForm(){
     var oppMa = parseInt(oppDatoArray[1]);
     var oppDa = parseInt(oppDatoArray[2]);
 
-    var riktigDatoBool = false;
+    var riktigDatoBool = true;
 
     if(oppDatoArray.length != 3){
         document.getElementById("jsOutput").innerHTML = "Feil formatering av dato"; //sjekker at det er 3 felter

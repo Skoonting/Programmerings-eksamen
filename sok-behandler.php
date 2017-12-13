@@ -7,7 +7,7 @@ include("start.html");
 <h3> Søk i yrkesgruppe </h3>
 
 	<form method="post" action="sok-behandler.php" id="sokbehandler" name="sokbehandler" onSubmit="return validering()">
-		Yrkesgruppe:<input type="text" id="sok" name="sok" onKeyUp="vis(this.value)" onFocus="fokus(this)" onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onChange="endreTilStoreBokstaver(this)" required /> <br>
+		Yrkesgruppe:<input type="text" id="sok" name="sok" onFocus="fokus(this)" onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onChange="endreTilStoreBokstaver(this)" required /> <br>
 		<input type="submit" value="Søk" id="fortsett" name="fortsett" /> 
 		<input type="reset" value="Nullstill feltene" id="nullstill" name="nullstill" onClick="fjernmelding()"/>
 	</form>
@@ -30,14 +30,33 @@ if (isset($_POST ["fortsett"]))
 /* lese fil */ 
 
 $filnavn="../filer/behandler.txt";
+include("behandler-validering.php"); 
 
 $sok=$_POST ["sok"];
 $sok=trim($sok);
+
+$lovligyrke=lovligyrke($sok);   /* sjekker alt yrkesgruppe finnes */ 
+$trueyrke=sokyrke($sok);
 
 if (!$sok) 
 	{
 		Print ("Søkefeltet må fylles ut <br>");
 	}
+	
+	
+if (!$lovligyrke)
+	{	
+		print ("Yrkesgruppen finnes ikke <br>"); 
+	
+	}
+	
+	
+if (!$trueyrke)	
+	{	
+		print ("Yrkesgruppen finnes, men ingen behandlere er registrert til dette yrket. <br>"); 
+	
+	}
+	
 	
 else	
 
@@ -63,7 +82,7 @@ while ($behandlerlinje=fgets($fil)) /* lest en linje fra fil */
 			
 		if ($yrkesgruppe==$sok)
 			{
-				print ("$etternavn $fornavn <br>");
+				print ("$etternavn $fornavn ID: $behandlerID<br>");
 			}
 		}
 	}

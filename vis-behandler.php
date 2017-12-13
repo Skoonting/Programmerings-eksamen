@@ -23,6 +23,9 @@ $filoperasjon="r";    /* read = lesing */
 
 
 $fil=fopen($filnavn,$filoperasjon);  /* åpne */ 
+print("<table>");
+print("<tr><th>Etternavn</th><th>Fornavn</th><th>Yrke</th><th>ID</th></tr>");
+
 
 while ($behandlerlinje=fgets($fil)) /* fgets leser frem til linjeskift  */
 {
@@ -39,11 +42,12 @@ while ($behandlerlinje=fgets($fil)) /* fgets leser frem til linjeskift  */
 		
 		
 		
-		print("$etternavn $fornavn : $yrkesgruppe </br>");
+		print("<tr><td>$etternavn</td><td>$fornavn</td><td>$yrkesgruppe</td><td>$behandlerID</td></tr>");
 
 			
 	}
 }	
+    print("</table>");
 
 fclose($fil); /* lukke */ 
 

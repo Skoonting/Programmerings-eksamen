@@ -90,7 +90,7 @@ while ($linje=fgets($bildefil))
 	}
 }
 
-function validerbehandlerid($behandlerID)
+function validerbehandlerid($behandlerID)  /* sjekker at behandler id er unik */ 
 
 {
 
@@ -163,6 +163,98 @@ while ($linje=fgets($filyrkesgruppe))
 	}
 }
 
+function lovligyrke($sok) /* sjekker at yrkesgruppe er registrert i txt for søk etter behandler */ 
+{
+
+$filyrke="../filer/yrkesgruppe.txt";
+
+$lovligyrke=true; 
+
+$filoperasjonyrke="r"; 
+
+$filyrke=fopen($filyrke,$filoperasjonyrke);
+
+while ($linje=fgets($filyrke)) 
+	{
+		if ($linje != "") 
+		{
+			$del=explode(",",$linje);
+			$yrke=trim($del[0]);
+			
+			
+			if ($yrke==$sok) 
+				{
+					$lovligyrke=true;
+					return $lovligyrke;
+				}
+				
+			else 
+				{		
+					$lovligyrke=false;
+				}
+		}
+	}
+}
+
+
+
+
+function sokyrke($sok) /* sjekker at yrke finnes i behandler, slik at kun yrker som er registrert til en behandler er søkbare*/ 
+{
+
+$filnavn="../filer/behandler.txt";
+
+$trueyrke=true; 
+
+$filoperasjon="r"; 
+
+$fil=fopen($filnavn,$filoperasjon);
+
+while ($linje=fgets($fil)) 
+	{
+		if ($linje != "") 
+		{
+			$del=explode(",",$linje);
+			$behandlerID=trim($del[0]);
+			$fornavn=trim($del[1]);
+			$etternavn=trim($del[2]);
+			$yrkesgruppe=trim($del[3]);
+			$bildenr=trim($del[4]);
+			$maksAntall=trim($del[5]);
+			
+			if ($yrkesgruppe===$sok) 
+				{
+					
+					$trueyrke=true;
+					return $trueyrke;
+				}
+				
+			else 
+				{		
+					$trueyrke=false;
+				}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -191,8 +283,10 @@ while ($linje=fgets($filbehandler))
 			$bildenr=trim($del[4]);
 			$maksAntall=trim($del[5]);
 			
-			if ($behandlerID==$sok) 
+			if ($behandlerID===$sok) 
 				{
+					
+					$lovligbehandler=true;
 					return $lovligbehandler;
 				}
 				
