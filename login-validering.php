@@ -17,8 +17,9 @@ while ($linje=fgets($fil))
 		if ($linje != "") 
 		{
 			$del=explode(";",$linje);
-			$navn=trim($del[0]);
-			$id=trim($del[1]);
+			$fornavn=trim($del[0]);
+			$etternavn=trim($del[0]);
+			$id=trim($del[2]);
 			
 			
 			if ($pasientID==$id) 

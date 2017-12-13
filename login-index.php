@@ -6,7 +6,7 @@ include("login-start.html");
 
 <h3> Fyll inn pasientID</h3>
 	<form method="post" action="login-index.php" id="regbehandler" name="regbehandler" onSubmit="">
-        Pasient-id <input type="text" id="pasientID" name="pasientID" onFocus="fokus(this)" onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onChange="endreTilStoreBokstaver(this)" required/> <br /> <br />
+        Pasient-id <input type="text" id="pasientID" name="pasientID" onFocus="fokus(this)" onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onChange="endreTilStoreBokstaver(this)" maxlength="3" required /> <br /> <br />
 		<input type="submit" value="Fortsett" id="fortsett" name="fortsett" /> 
 		<input type="reset" value="Nullstill feltene" id="nullstill" name="nullstill" onClick="fjernmelding()"/>
 	</form>
